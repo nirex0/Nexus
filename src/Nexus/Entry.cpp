@@ -84,11 +84,11 @@ auto main(int argc, char* argv[]) -> int
 			std::cout << "[PHASE 1]" << std::endl;
 			std::vector<NDI_BYTE> vecNewBMP = Nexus_Converter::PNG2BMP(input3.c_str());
 			_mkdir("TEMP");
-			lodepng::save_file(vecNewBMP, "TEMP\\tmp.bmp");
+			nexuspng::save_file(vecNewBMP, "TEMP\\tmp.bmp");
 
 			std::cout << "[PHASE 2]" << std::endl;
 			std::vector<NDI_BYTE> vecNewPNG = Nexus_Converter::BMP2PNG("TEMP\\tmp.bmp");
-			lodepng::save_file(vecNewPNG, input4.c_str());
+			nexuspng::save_file(vecNewPNG, input4.c_str());
 
 			remove("TEMP\\tmp.bmp");
 			_rmdir("TEMP");
@@ -101,11 +101,11 @@ auto main(int argc, char* argv[]) -> int
 			std::cout << "[PHASE 1]" << std::endl;
 			std::vector<NDI_BYTE> vecNewPNG = Nexus_Converter::BMP2PNG(input3.c_str());
 			_mkdir("TEMP");
-			lodepng::save_file(vecNewPNG, "TEMP\\tmp.png");
+			nexuspng::save_file(vecNewPNG, "TEMP\\tmp.png");
 
 			std::cout << "[PHASE 2]" << std::endl;
 			std::vector<NDI_BYTE> vecNewBMP = Nexus_Converter::PNG2BMP("TEMP\\tmp.png");
-			lodepng::save_file(vecNewBMP, input4.c_str());
+			nexuspng::save_file(vecNewBMP, input4.c_str());
 
 			remove("TEMP\\tmp.png");
 			_rmdir("TEMP");
@@ -127,7 +127,7 @@ auto main(int argc, char* argv[]) -> int
 		{
 			std::cout << "[CONVERTING]" << std::endl;
 			std::vector<NDI_BYTE> vecNewBMP = Nexus_Converter::BMP2PNG(input3.c_str());
-			lodepng::save_file(vecNewBMP, input4);
+			nexuspng::save_file(vecNewBMP, input4);
 			std::cout << "[DONE]" << std::endl;
 			return 0;
 		}
@@ -135,7 +135,7 @@ auto main(int argc, char* argv[]) -> int
 		{
 			std::cout << "[CONVERTING]" << std::endl;
 			std::vector<NDI_BYTE> vecNewPNG = Nexus_Converter::PNG2BMP(input3.c_str());
-			lodepng::save_file(vecNewPNG, input4);
+			nexuspng::save_file(vecNewPNG, input4);
 			std::cout << "[DONE]" << std::endl;
 			return 0;
 		}
@@ -157,7 +157,7 @@ auto main(int argc, char* argv[]) -> int
 			std::cout << "[CONVERTING THE PNG FILE TO BMP]" << std::endl;
 			std::vector<NDI_BYTE> vecNewBMP = Nexus_Converter::PNG2BMP(input3.c_str());
 			_mkdir("TEMP");
-			lodepng::save_file(vecNewBMP, "TEMP\\tmp.bmp");
+			nexuspng::save_file(vecNewBMP, "TEMP\\tmp.bmp");
 			input3 = "TEMP\\tmp.bmp";
 		}
 
@@ -189,7 +189,7 @@ auto main(int argc, char* argv[]) -> int
 				std::cout << "[CONVERTING THE BMP FILE TO PNG]" << std::endl;
 				Nexus::BMPEmbedText(EncryptedData, inputImage).WriteToFile("TEMP\\tmp.bmp");
 				std::vector<NDI_BYTE> vecNewPNG = Nexus_Converter::BMP2PNG("TEMP\\tmp.bmp");
-				lodepng::save_file(vecNewPNG, input5.c_str());
+				nexuspng::save_file(vecNewPNG, input5.c_str());
 				remove("TEMP\\tmp.bmp");
 				_rmdir("TEMP");
 			}
@@ -207,7 +207,7 @@ auto main(int argc, char* argv[]) -> int
 				std::cout << "[CONVERTING THE BMP FILE TO PNG]" << std::endl;
 				Nexus::BMPEmbedText(data, inputImage).WriteToFile("TEMP\\tmp.bmp");
 				std::vector<NDI_BYTE> vecNewPNG = Nexus_Converter::BMP2PNG("TEMP\\tmp.bmp");
-				lodepng::save_file(vecNewPNG, input5.c_str());
+				nexuspng::save_file(vecNewPNG, input5.c_str());
 				remove("TEMP\\tmp.bmp");
 				_rmdir("TEMP");
 			}
@@ -233,7 +233,7 @@ auto main(int argc, char* argv[]) -> int
 			std::cout << "[CONVERTING THE PNG FILE TO BMP]" << std::endl;
 			std::vector<NDI_BYTE> vecNewBMP = Nexus_Converter::PNG2BMP(input3.c_str());
 			_mkdir("TEMP");
-			lodepng::save_file(vecNewBMP, "TEMP\\tmp.bmp");
+			nexuspng::save_file(vecNewBMP, "TEMP\\tmp.bmp");
 			input3 = "TEMP\\tmp.bmp";
 		}
 		// Read The image

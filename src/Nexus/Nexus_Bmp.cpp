@@ -28,7 +28,7 @@ unsigned Nexus_Converter::decodeBMP(std::vector<NDI_BYTE>& image, unsigned& w, u
 	image.resize(w * h * 4);
 
 	/*
-	There are 3 differences between BMP and the raw image buffer for LodePNG:
+	There are 3 differences between BMP and the raw image buffer for nexusPNG:
 	-it's upside down
 	-it's in BGR instead of RGB format (or BRGA instead of RGBA)
 	-each scanline has padding bytes to make it a multiple of 4 if needed
@@ -61,12 +61,12 @@ unsigned Nexus_Converter::decodeBMP(std::vector<NDI_BYTE>& image, unsigned& w, u
 std::vector<NDI_BYTE> Nexus_Converter::BMP2PNG(const char* BMPfile)
 {
 	std::vector<unsigned char> bmp;
-	lodepng::load_file(bmp, BMPfile);
+	nexuspng::load_file(bmp, BMPfile);
 	std::vector<unsigned char> image;
 	unsigned w, h;
 	unsigned error = decodeBMP(image, w, h, bmp);
 	std::vector<unsigned char> png;
-	error = lodepng::encode(png, image, w, h);
+	error = nexuspng::encode(png, image, w, h);
 	return png;
 }
 
@@ -139,7 +139,7 @@ std::vector<NDI_BYTE> Nexus_Converter::PNG2BMP(const char* PNGFile)
 	std::vector<unsigned char> image; //the raw pixels
 	unsigned width, height;
 
-	unsigned error = lodepng::decode(image, width, height, infile, LCT_RGB, 8);
+	unsigned error = nexuspng::decode(image, width, height, infile, LCT_RGB, 8);
 
 	std::vector<NDI_BYTE> bmp;
 	encodeBMP(bmp, &image[0], width, height);
