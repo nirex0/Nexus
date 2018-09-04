@@ -28,7 +28,7 @@ Nexus Encryption (NES (Nirex Encryption Service)) can encrypt any data with any 
 COPYRIGHT
 =========
 
-Copyright (C) 2017 Nirex
+Copyright (C) 2018 Nirex
 
 Please read the LICENSE file for License details and terms of use.
 
