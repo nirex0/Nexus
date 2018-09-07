@@ -37,4 +37,4 @@ CONTACT
 
 You can contact me at:
 
-nirex.0[at]gmail[dot]com
+Nirex.0@gmail.com
